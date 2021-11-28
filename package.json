@@ -1,0 +1,10 @@
+{
+  "name": "test-node-module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "then-fs": "^2.0.0"
+  }
+}

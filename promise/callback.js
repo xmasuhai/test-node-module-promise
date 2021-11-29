@@ -1,7 +1,9 @@
 // 如果在`package.json`中设置了`"type": "module"`
 // 删除或改为`"type": "commonjs"` 解除以下注释
 // const fs = require('fs');
+// 或者使用 webStorm 开启 node.js辅助 并导入 import fs from 'fs'
 
+import fs from 'fs'
 // 读取文件 1.txt
 fs.readFile('./files/1.txt', 'utf8', (error1, result1) => {
   if (error1) return console.log(error1.message) // 读取文件 1.txt 失败

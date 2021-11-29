@@ -1,1 +1,1 @@
-'./path-b.txt'
+./files/path-b.txt

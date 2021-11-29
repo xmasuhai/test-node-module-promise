@@ -17,3 +17,5 @@ thenFs.readFile('./files/11.txt', 'utf8') // 文件不存在导致读取失败
   .catch(err => {
     console.log(err.message);
   })
+
+// use .catch() insteadof try/catch in most cases

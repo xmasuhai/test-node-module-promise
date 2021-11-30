@@ -4,6 +4,7 @@
 // 或者使用 webStorm 开启 node.js辅助 并导入 import fs from 'fs'
 
 import fs from 'fs'
+
 // 读取文件 1.txt
 fs.readFile('./files/1.txt', 'utf8', (error1, result1) => {
   if (error1) return console.log(error1.message) // 读取文件 1.txt 失败

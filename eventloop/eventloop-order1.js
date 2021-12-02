@@ -10,6 +10,6 @@ setTimeout(() => {
 console.log('D')
 
 // ADCB
-// sycn AD
+// synchronous AD
 // setTimeout 0 C
-// readFile cost time then B
+// readFile I/O cost time B

@@ -37,4 +37,3 @@ console.log('script end')
 - 宏任务队列
   - console.log('setTimeout');
 * */
-

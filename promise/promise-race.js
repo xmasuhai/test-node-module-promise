@@ -26,3 +26,16 @@ Promise.race(promiseArrFail)
   .catch(err => {
     console.log(err.message);
   })
+
+// fast
+const fastPromise = new Promise((resolve/*, reject*/) => {
+  setTimeout(() => resolve(`fast`), 100);
+});
+
+const slowPromise = new Promise((resolve/*, reject*/) => {
+  setTimeout(() => resolve(`slow`), 200);
+});
+
+const arr = [fastPromise, slowPromise];
+
+Promise.race(arr).then(console.log); // fast

@@ -5,6 +5,9 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "then-fs": "^2.0.0"
+    "then-fs": "^2.0.0",
+    "xmlhttprequest": "^1.8.0",
+    "xmlhttprequest-ssl": "^2.0.0",
+    "xmlhttprequest-ts": "^1.0.1"
   }
 }

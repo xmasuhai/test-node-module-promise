@@ -10,11 +10,11 @@
   const xhr = new XMLHttpRequest()
   xhr.open(
     'GET',
-    'http://localhost:8080/getWeather',
+    'http://localhost:8080/getWeather?city=beijing',
     true
   )
   xhr.onload = () => {
-    document.querySelector('span').innerText = JSON.parse(xhr.responseText).data
+    document.querySelector('span').innerText = JSON.parse(xhr.responseText).city + JSON.parse(xhr.responseText).weather
   }
   xhr.send()
 </script>

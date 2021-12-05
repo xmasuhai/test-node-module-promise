@@ -1,4 +1,4 @@
-// 加载 node 模块
+// 加载 node 模块 node.js 16
 /*
 const http = require('http') // 创建服务器
 const fs = require('fs') // 文件读取模块

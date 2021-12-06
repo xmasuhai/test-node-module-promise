@@ -26,7 +26,7 @@
 
 ## 同步任务和异步任务的执行过程
 
-![eventloop](https://note.youdao.com/yws/api/personal/file/7D81B05F59394FDD891F6E8DC3FF95CB?method=download&shareKey=decef8572d95a3a90b105afc7ac1a10e)
+![EventLoop](https://note.youdao.com/yws/api/personal/file/7D81B05F59394FDD891F6E8DC3FF95CB?method=download&shareKey=decef8572d95a3a90b105afc7ac1a10e)
 
 - 同步任务由JS主线程依次执行
 - 异步任务委托给宿主环境执行
@@ -45,7 +45,7 @@
 
 > JS主线程中任务队列中读取异步任务的回调函数，放到执行栈中依次执行，这个过程是循环不断的，整个机制又称为 EventLoop 事件循环
 
-### 结合 EevntLoop 分析输出的顺序
+### 结合 EventLoop 分析输出的顺序
 
 ```js
 import thenFs from 'then-fs'
@@ -73,12 +73,12 @@ console.log('D')
 - `setTimeout` 异步任务，委托给宿主环境执行
 - `thenFs.readFile`消耗耗一定的时间后将回调函数放入任务队列，`setTimeout` 延迟 0，立即将回调放入任务队列
 - 读文件的过程不可能是0秒，最快也是几毫秒，这样就慢于`setTimeout`执行完毕
-- `I/O`任务和settimeout同样是宏任务，按先来顺序执行，但B是在IO宏任务里面的promise微任务里面打印的,所以应该先打印C
+- `I/O`任务和setTimeout同样是宏任务，按先来顺序执行，但B是在IO宏任务里面的promise微任务里面打印的,所以应该先打印C
 - 任务队列先进先出，首先执行的是`setTimeout`的回调函数，后执行的是`thenFs.readFile`的回调函数
 
 > 总结
 
-- IO任务和settimeout同样是宏任务，按先来顺序执行，IO宏任务里面的 微任务 promise
+- IO任务和setTimeout同样是宏任务，按先来顺序执行，IO宏任务里面的 微任务 promise
 - **异步任务操作的耗时**影响着其回调函数被**加入到任务队列的先后顺序**
   - `setTimeout`耗时由第二个参数决定
   - `thenFs.readFile`耗时不定

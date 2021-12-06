@@ -1,24 +1,5 @@
 // 运行 node async_await/step.js
-const takeLongTime = (n, name) => {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(n + 200, name), n)
-  })
-}
-
-const step1 = (n, name) => {
-  console.log(`${name} step1 with ${n}`)
-  return takeLongTime(n, name)
-}
-
-const step2 = (n, name) => {
-  console.log(`${name} step2 with ${n}`)
-  return takeLongTime(n, name)
-}
-
-const step3 = (n, name) => {
-  console.log(`${name} step3 with ${n}`)
-  return takeLongTime(n, name)
-}
+import {step1, step2, step3} from './stepFn.js'
 
 // Promise
 const doItPromise = (name = 'doItPromise') => {
@@ -49,4 +30,3 @@ const doItAsync = async (name = 'doItAsync') => {
 }
 
 doItAsync()
-

@@ -1185,6 +1185,10 @@ getFile('./files/1.txt').then(
 ## 了解`async`和`await`的基本使用<a href="#catalogue"> ⇧ </a>
 
 > `async/await`是 ES8 (ECMAScript 2017)引入的新语法，用来简化 Promise 异步操作
+>
+> `async`和`await`是 Generator 函数的语法糖
+>
+> 使用关键字 async 来修饰function或者箭头函数`() => {}`，在函数内部使用 await 来表示等待异部操作的结果
 
 - 在 `async/await` 出现前，开发者只能通过 链式 .then() 的方式处理 Promise 异步操作
 
@@ -1213,10 +1217,6 @@ thenFs.readFile('./files/1.txt', 'utf8')
 
 ### `async/await`的基本使用<a href="#catalogue"> ⇧ </a>
 
-- async 函数的返回值也是一个 Promise 实例
-- async 函数执行的过程中，一旦遇到 await 就会先返回 pending(进行中) 状态的 Promise 实例，等待异步操作有结果之后，继续执行 await 之后的语句
-- 语句全部执行完毕且无错误的情况下，则返回的 Promise 实例会变为已成功，否则会变为已失败
-
 ```js
 import thenFs from 'then-fs'
 
@@ -1242,8 +1242,17 @@ getAllFiles()
 
 ### `async/await`注意事项<a href="#catalogue"> ⇧ </a>
 
-- 如果在 function 中使用了 await ，则 function 必须被 async 修饰
-- 在 async 方法中，首个 await 之前的代码会同步执行，await 之后的代码会异步执行
+- 使用 `async` 声明一个**异步函数**，并**隐式地返回一个Promise**。因此可以直接return变量，无需使用 Promise.resolve 进行转换
+- async 函数的**返回值也是一个 Promise 实例**
+- 总是与 await 一起使用的。并且，await **只能在 async 函数体内**
+- await 是个运算符，用于组成表达式，它会阻塞后面的代码
+- 如果await 后等到的是 Promise 对象，则**得到其 resolve 值**。否则，会得到一个表达式的运算结果
+- async 函数执行的过程中，一旦遇到 await 就会**先返回 pending(进行中) 状态的 Promise 实例**，等待异步操作有结果之后，继续执行 await 之后的语句
+- 语句**全部执行完毕**且**无错误**的情况下，则返回的 Promise 实例会变为已成功，否则会变为已失败
+- 和 promise 一样，是**非阻塞的**。但不用写 then 及其回调函数，这会减少代码行数，也避免了代码嵌套
+- 所有异步调用，可以写在**同一个代码块**中，无需定义多余的中间变量
+- ***使异步代码，在形式上，更接近于同步代码***
+- 在 async 方法中，**首个 await 之前**的代码会**同步执行**，首个 await 之后的代码会**异步执行**
 
 ```js
 import thenFs from 'then-fs'
@@ -1269,8 +1278,6 @@ console.log('sync step C');
 // async step D
 
 ```
-
-> `async`和`await`是 Generator 函数的语法糖，使用关键字 async 来修饰function或者箭头函数`() => {}`，在函数内部使用 await 来表示异
 
 ### 其他使用示例<a href="#catalogue"> ⇧ </a>
 
@@ -1309,7 +1316,10 @@ async function f3() {
 ```
 
 - Promise 是并发的，但如你一个一个地等待它们，会太费时间
+
 - Promise.all() 可以节省很多时间
+
+
 
 ---
 

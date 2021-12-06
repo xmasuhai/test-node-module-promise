@@ -19,20 +19,20 @@
 ```js
 setTimeout(() => {
   console.log('延时1秒后输出')
+  setTimeout(() => {
+    console.log('延时2秒后输出')
     setTimeout(() => {
-      console.log('延时2秒后输出')
-      setTimeout(() => {
-        console.log('延时3秒后输出')
+      console.log('延时3秒后输出')
     }, 3000)
   }, 2000)
 }, 1000)
 
 getCityFromIp(ip, (city) => {
-    getWeatherFromCity(city, (weather) => {
-        getSuggestionFromWeather(weather, suggestion => {
-            ...
-        })
+  getWeatherFromCity(city, (weather) => {
+    getSuggestionFromWeather(weather, suggestion => {
+    ...
     })
+  })
 })
 ```
 
@@ -50,9 +50,9 @@ getCityFromIp(ip, (city) => {
 
 ```js
 f1(a)
-  .then(b => f2(b), onerror1)
-  .then(c => f3(c), onerror2)
-  .catch(err => {})
+        .then(b => f2(b), onerror1)
+        .then(c => f3(c), onerror2)
+        .catch(err => {})
 ```
 
 ---
@@ -84,20 +84,20 @@ const p = new Promise((resolved, rejected) => {
     // 模拟异步任务 如果当前时间为偶数就成功 否则就失败
     const time = Date.now()
     time % 2 === 0
-      ? resolved(`执行成功 ${time}`)
-      : rejected(`执行失败 ${time}`)
+            ? resolved(`执行成功 ${time}`)
+            : rejected(`执行失败 ${time}`)
   }, 1000)
 })
 
 p.then(
-  // 接收成功的value数据 onResoled
-  value => {
-    console.log(`onResoled ${value}`)
-  },
-  // 接收失败的reason数据 onRejected
-  reason => {
-    console.log(`onRejected ${reason}`)
-  }
+        // 接收成功的value数据 onResoled
+        value => {
+          console.log(`onResoled ${value}`)
+        },
+        // 接收失败的reason数据 onRejected
+        reason => {
+          console.log(`onRejected ${reason}`)
+        }
 )
 
 ```
@@ -111,13 +111,13 @@ p.then(
 
 ```js
 var p = new Promise(function (resolve, reject) {
-    resolve('Promise');
+  resolve('Promise');
 })
 p.then((result) => {
-    console.log(1)
+  console.log(1)
 })
 p.then((result) => {
-    console.log(2)
+  console.log(2)
 });
 
 ```
@@ -131,17 +131,17 @@ p.then((result) => {
 
 ```js
 var p = new Promise(function (resolve, reject) {
-    // 异步函数
-    setTimeout(()=> {
-        console.log('setTimeout');
-        resolve('Promise')
-    }, 1000)
+  // 异步函数
+  setTimeout(()=> {
+    console.log('setTimeout');
+    resolve('Promise')
+  }, 1000)
 })
 p.then((result) => {
-    console.log(1)
+  console.log(1)
 })
 p.then((result) => {
-    console.log(2)
+  console.log(2)
 });
 
 ```
@@ -156,7 +156,7 @@ p.then((result) => {
 
 > 提示：then/catch 都是一个 Promise
 
-### 使用Promise的一般写法
+### 使用Promise的一般写法<a href="#catalogue"> ⇧ </a>
 
 ```js
 function fn(arg) {
@@ -310,7 +310,7 @@ console.log(userCount); // Promise {<pending>}
 
 > 其他基础概念
 
-### `Promise`的状态
+### `Promise`的状态<a href="#catalogue"> ⇧ </a>
 
 > 一个 Promise 可以有多种状态：
 
@@ -412,7 +412,7 @@ coinFlip(10)
 
 ```
 
-### `.then()`链式调用
+### `.then()`链式调用<a href="#catalogue"> ⇧ </a>
 
 > 一个异步操作在另一个异步操作之后执行的场景，需要处理 Promise chain 期约链
 
@@ -683,7 +683,7 @@ thenFs.readFile('./files/11.txt', 'utf8') // 文件不存在导致读取失败
 
 ---
 
-## 总结在 JS Promises 中的错误处理
+## 总结在 JS Promises 中的错误处理<a href="#catalogue"> ⇧ </a>
 
 > 有一个 `getUserData(userId)` 函数，返回关于用户的信息，或者如果 userId 参数有问题的话会抛出一个错误
 >
@@ -802,6 +802,7 @@ const p = Promise.all([p1, p2, p3]);
 
 - 返回一个**新的 promise 对象**
 - `Promise.all()`方法接受一个数组作为参数，一般地 p1、p2、p3 都是 Promise 实例
+  -  p1、p2、p3 **互相独立，参数之间不能相互依赖**
   - 如果不是，会自动先调用下`Promise.resolve`方法，将参数转为 Promise 实例，再进一步处理
 - `Promise.all()`方法的参数可以不是数组，但必须具有 Iterator 接口，且返回的每个成员都是 Promise 实例
 - p 的状态由`p1、p2、p3`决定，分成两种情况
@@ -1279,6 +1280,13 @@ console.log('sync step C');
 
 ```
 
+> 不要是异步就要去用 async/await，要满足两点，优势才能体现：
+
+- 1️⃣要执行多个异步任务
+- 2️⃣并且这些个任务都有前后依赖的关系(比如后者依赖前者的结果)
+- 主要就是用来解套，让代码更清晰
+- 没有前后依赖那不如用promise了
+
 ### 其他使用示例<a href="#catalogue"> ⇧ </a>
 
 #### 配合 `Promise.all` 使用<a href="#catalogue"> ⇧ </a>
@@ -1316,9 +1324,281 @@ async function f3() {
 ```
 
 - Promise 是并发的，但如你一个一个地等待它们，会太费时间
-
 - Promise.all() 可以节省很多时间
 
+## 为何说 async 函数是语法糖
+
+> async 函数的实现，其实就是将 Generator 函数和自动执行器，包装在一个函数里。
+
+- 参考 非前端[阮一峰写的 《async 函数的含义和用法》](http://www.ruanyifeng.com/blog/2015/05/async.html) 一文
+- 转码器 Babel 已经支持，转码后就能使用
+
+## async 相较于 Promise 的优势
+
+- 相较于 Promise，能更好地处理 then 链
+- 中间值
+- 调试
+
+---
+
+### 相较于 Promise，能更好地处理 then 链
+
+> 假设有三个表示处理一系列连续步骤的函数 `stepFn.js`
+
+```js
+export const takeLongTime = (n, name, ...args) => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(n + 200, name, ...args), n)
+  })
+}
+
+export const step1 = (n, name, ...args) => {
+  console.log(`${name} step1 with ${n}`)
+  return takeLongTime(n, name, ...args)
+}
+
+export const step2 = (n, name, ...args) => {
+  console.log(`${name} step2 with ${n}`)
+  return takeLongTime(n, name, ...args)
+}
+
+export const step3 = (n, name, ...args) => {
+  console.log(`${name} step3 with ${n}`)
+  return takeLongTime(n, name, ...args)
+}
+
+```
+
+> 现在用 Promise 方式来实现这三个步骤的处理 `step.js`
+
+```js
+// 运行 node async_await/step.js
+import {step1, step2, step3} from './stepFn.js'
+
+// Promise
+const doItPromise = (name = 'doItPromise') => {
+  console.time(name)
+  const time1 = 300
+  step1(time1, name)
+    .then(time2 => step2(time2, name))
+    .then(time3 => step3(time3, name))
+    .then(result => {
+      console.log(`${name} result is ${result}`)
+    })
+    .finally(() => {
+      console.timeEnd(name)
+    })
+}
+
+doItPromise()
+
+```
+
+> 用 async/await 来实现
+
+```js
+// 运行 node async_await/step.js
+import {step1, step2, step3} from './stepFn.js'
+
+// async Function
+const doItAsync = async (name = 'doItAsync') => {
+  console.time(name)
+  const time1 = 300
+  const time2 = await step1(time1, name)
+  const time3 = await step2(time2, name)
+  const result = await step3(time3, name)
+  console.log(`${name} result is ${result}`)
+  console.timeEnd(name)
+}
+
+doItAsync()
+
+```
+
+- 结果和之前的 Promise 实现是一样的
+- 但代码更清晰，和同步代码一样
+
+---
+
+### 中间值
+
+> 仍然是三个步骤，但每一个步骤都需要之前每个步骤的结果
+>
+> Pomise的实现看着很晕，传递参数太过麻烦
+
+```js
+// 运行 node async_await/step-median.js
+import {step1, step2, step3} from './stepFn.js'
+
+// Promise
+const doItPromise = (name = 'doItPromise') => {
+  console.time(name)
+  const time1 = 300
+  // 每一个步骤都需要之前每个步骤的结果
+  step1(time1, name)
+    .then(time2 => {
+      return step2(time2, name)
+        // median // then 返回的中间值
+        .then(time3 => [time1, time2, time3])
+    })
+    // median 中间值 times
+    .then(times => {
+      const [time1, time2, time3] = times
+      return step3(time3, name)
+        // median // then 返回的中间值
+        .then(result => [time1, time2, time3, result])
+    })
+    .then(resultList => {
+      const [, , , result] = resultList
+      console.log(`${name} result is ${result}`)
+    })
+    .finally(() => {
+      console.timeEnd(name)
+    })
+}
+
+doItPromise()
+
+```
+
+> 用 async/await 来写：
+
+```js
+// 运行 node async_await/step-median.js
+import {step1, step2, step3} from './stepFn.js'
+
+// async
+const doItAsync = async (name = 'doItAsync') => {
+  console.time(name);
+  const time1 = 300;
+  const time2 = await step1(time1, name);
+  const time3 = await step2(time2, name, time1);
+  const result = await step3(time3, name, time2, time1);
+  console.log(`${name} result is ${result}`);
+  console.timeEnd(name)
+}
+
+doItAsync();
+
+```
+
+---
+
+### 更易调试
+
+> 较 Promise 更易于调试
+
+- 因为没有代码块，所以不能在一个**返回的箭头函数**中**设置断点**
+- 如果在一个 .then 代码块中使用调试器的步进(step-over)功能，***调试器并不会进入后续的 .then 代码块***
+- 因为调试器**只能跟踪同步代码**的每一步
+
+```js
+const makeRequest = () => {
+  return callOnePromise()
+    .then(() => callOnePromise())
+    // step-over 将跳过以下的 .then()
+    .then(() => callOnePromise())
+    .then(() => callOnePromise())
+}
+```
+
+> 使用 async/await，就不必再使用箭头函数
+
+- **可以对 await 语句执行步进操作**，就好像他们都是普通的同步语句一样
+
+```js
+const makeRequest = async () => {
+  await callOnePromise()
+  await callOnePromise()
+  await callOnePromise()
+}
+```
+
+> JavaScript的异步编写方式，从 **回调函数** 到 **Promise**、**Generator** 再到 **Async/Await**。表面上只是写法的变化，但本质上则是语言层的一次次抽象。让我们可以用更简单的方式实现同样的功能，而不需要去考虑代码是如何执行的
+
+### 无法替代的场景
+
+> 前端进行并发请求，都请求完执行操作A; 否则执行操作B。
+
+- 这种情况就是用的 Promise.all()
+- Async/Await　对　Generator是取代关系，但不能完全取代 Promise
+- 处理并发请求（只是处理并发请求，而不是并发）的时候，可采用 axios.all()，拿到的最终结果还是个Promise
+- 然后再去业务层处理A，在这时与 Promise.all() 的效果相同
+- 用 await/async 是串行，用 Promise.all() 是处理并发
+
+```js
+const serial =  async () => {
+  const promiseA = promiseFnA()
+  const promiseB = promiseFnB()
+
+  try {
+    // do something on valueA and valueB
+    const valueA = await promiseA
+    const valueB = await promiseB
+  } catch (error) {
+    throw error
+  }
+}
+
+```
+
+> 串行/并发
+
+```js
+// 运行 node async_await/serialConcurrent.js
+const delay = (ms) => {
+  return new Promise(resolve => { return setTimeout(resolve, ms)})
+};
+
+// 串行 async serial
+;(async () => {
+  const p1 = delay(2000)
+  const p2 = delay(2000)
+  console.time('delay_serial')
+  await p1
+  await p2
+  console.timeEnd('delay_serial')
+})();
+
+// 并发 Promise.all
+;(async () => {
+  const p1 = delay(2000)
+  const p2 = delay(2000)
+  console.time('delay_concurrent')
+  await Promise.all([p1, p2])
+  console.timeEnd('delay_concurrent')
+})();
+
+// 显然两段代码的都 delay: 2000 ms
+
+```
+
+- 当调用 `promise = delay(2000)` 的时候，已发起 delay 的异步处理 setTimeout
+- 此时 promise 的状态是 pending
+- await 需要等 promise 状态变成 resolved(rejected则抛出异常)，才会继续后面的操作,可以理解为阻塞
+- 如果是后一次的 delay 调用是等待前一次 resolve 才发起的，那么两次 delay 表现出来是串行的
+- 在 await 之前就已经调用了两次 delay，所以表现出来的就是并发
+- 就像调用 Promise.all，要求传入的参数是promise对象数组
+- 调用 `Promise.all([delay(2000), delay(2000)])`
+- 其实相当于分两步走：
+  - `const p1 = delay(2000) // 已经发起异步处理`
+  - `const p2 = delay(2000) // 已经发起异步处理`
+  - `Promise.all([p1, p2]);`
+- step2 其实在传给 Promise.all 之前，异步处理已经都发起了
+- 所以并发并不是 Promise.all 处理的
+- Promise.all 只是做了类似如下操作：
+
+```js
+async all(promiseList) {
+  const result = [];
+  for(const promise of promiseList) {
+    result.push(await promise);
+  }
+  return result;
+}
+```
+
+---
 
 
 ---
@@ -1357,12 +1637,12 @@ async function f3() {
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise((resolve, reject) => {
-      setTimeout(resolve, 100, 'foo');
-    });
+  setTimeout(resolve, 100, 'foo');
+});
 
 Promise.all([promise1, promise2, promise3]).then((values) => {
-       console.log(values);
-    });
+  console.log(values);
+});
 //  output: Array [3, 42, "foo"]
 
 ```
@@ -1375,7 +1655,7 @@ Promise.all([promise1, promise2, promise3]).then((values) => {
 let p = Promise.reject(1).then(console.log('then1')).catch(console.log('catch1')).then(console.log('then2')).catch(console.log('catch2'))
 console.log(p)
 setTimeout(() => {
-    console.log(p);
+  console.log(p);
 })
 
 //输出
@@ -1384,8 +1664,8 @@ catch1
 then2
 catch2
 Promise { <pending> }
-(node:54428) UnhandledPromiseRejectionWarning: 1
-Promise { <rejected> 1 }
+  (node:54428) UnhandledPromiseRejectionWarning: 1
+  Promise { <rejected> 1 }
 
 ```
 

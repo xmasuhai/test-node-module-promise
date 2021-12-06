@@ -42,3 +42,21 @@ const doItAsync = async (name = 'doItAsync') => {
 }
 
 doItAsync();
+
+function doIt1() {
+  console.time('doIt')
+  const time1 = 300
+  step1(time1)
+    .then(step2)
+    .then(step3)
+    .then(result => { console.log(`result is ${result}`) })
+}
+
+function doIt2() {
+  console.time('doIt')
+  const time1 = 300
+  step1(time1)
+    .then(time2 => [time1, time2, step2(time1, time2)])
+    .then(time3 => step3(...time3))
+    .then(result => { console.log(`result is ${result}`) })
+}

@@ -160,7 +160,7 @@ p.then((result) => {
 
 ```js
 function fn(arg) {
-    return new Promise(fucntion(resolve, reject) {
+    return new Promise(function(resolve, reject) {
         if(成功的条件) {
             resolve(data)
         } else {

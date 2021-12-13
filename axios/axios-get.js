@@ -1,3 +1,4 @@
+// 运行 node axios/axios-get.js
 import axios from 'axios'
 
 // 直接发起不带参数的请求
@@ -34,7 +35,7 @@ instance.get('/api/getbooks')
   .then(
     (res) => {
       const {data, status} = res
-      console.log('// 先配置，后发起不带参请求')
+      console.log('先配置，后发起不带参请求')
       console.log('data', data)
       console.log('status', status)
       console.log('-----------------')
@@ -45,7 +46,7 @@ instance2.get('/api/getbooks')
   .then(
     (res) => {
       const {data, status} = res
-      console.log('// 先配置，后发起带参数的请求 http://www.liulongbin.top:3006/api/getbooks?id=1')
+      console.log('先配置，后发起带参数的请求 http://www.liulongbin.top:3006/api/getbooks?id=1')
       console.log('data', data)
       console.log('status', status)
       console.log('-----------------')

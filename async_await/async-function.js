@@ -1,3 +1,4 @@
+// 运行 node async_await/async-function.js
 import thenFs from 'then-fs'
 
 // 按顺序读取文件1、2、3的内容

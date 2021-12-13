@@ -1,3 +1,4 @@
+// 运行 node promise/promise-race-polyfill.js
 Promise.prototype.myRace = function (list /* : Array<Promise> */) {
   return new Promise(function (resolve, reject) {
     for (let arrayElement of list) {

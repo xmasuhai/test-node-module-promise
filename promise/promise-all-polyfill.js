@@ -1,3 +1,4 @@
+// 运行 node promise/promise-all-polyfill.js
 Promise.prototype.myAll = function (list /* : Array<Promise> */) {
   const arr = []
   // 返回一个新的Promise实例

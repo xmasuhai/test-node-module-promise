@@ -170,7 +170,7 @@ async function f3() {
 
 ### 相较于 Promise，能更好地处理 then 链
 
-> 假设有三个表示处理一系列连续步骤的函数 `stepFn.js`
+> 假设有三个表示处理一系列连续步骤的函数 `async-stepFn.js`
 
 ```js
 export const takeLongTime = (n, name, ...args) => {
@@ -196,11 +196,11 @@ export const step3 = (n, name, ...args) => {
 
 ```
 
-> 现在用 Promise 方式来实现这三个步骤的处理 `step.js`
+> 现在用 Promise 方式来实现这三个步骤的处理 `async-vs-promise-step.js`
 
 ```js
-// 运行 node async_await/step.js
-import {step1, step2, step3} from './stepFn.js'
+// 运行 node async_await/async-vs-promise-step.js
+import {step1, step2, step3} from './async-stepFn.js'
 
 // Promise
 const doItPromise = (name = 'doItPromise') => {
@@ -224,8 +224,8 @@ doItPromise()
 > 用 async/await 来实现
 
 ```js
-// 运行 node async_await/step.js
-import {step1, step2, step3} from './stepFn.js'
+// 运行 node async_await/async-vs-promise-step.js
+import {step1, step2, step3} from './async-stepFn.js'
 
 // async Function
 const doItAsync = async (name = 'doItAsync') => {
@@ -255,7 +255,7 @@ doItAsync()
 
 ```js
 // 运行 node async_await/step-median.js
-import {step1, step2, step3} from './stepFn.js'
+import {step1, step2, step3} from './async-stepFn.js'
 
 // Promise
 const doItPromise = (name = 'doItPromise') => {
@@ -292,7 +292,7 @@ doItPromise()
 
 ```js
 // 运行 node async_await/step-median.js
-import {step1, step2, step3} from './stepFn.js'
+import {step1, step2, step3} from './async-stepFn.js'
 
 // async
 const doItAsync = async (name = 'doItAsync') => {
@@ -372,7 +372,7 @@ const serial =  async () => {
 > 串行/并发
 
 ```js
-// 运行 node async_await/serialConcurrent.js
+// 运行 node async_await/async-serial-concurrent.js
 const delay = (ms) => {
   return new Promise(resolve => { return setTimeout(resolve, ms)})
 };

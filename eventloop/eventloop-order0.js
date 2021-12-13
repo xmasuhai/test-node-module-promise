@@ -1,3 +1,4 @@
+// 运行 node eventloop/eventloop-order0.js
 // macrotask
 setTimeout(() => {console.log('4')})
 // synchronous

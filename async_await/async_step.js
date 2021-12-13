@@ -1,3 +1,4 @@
+// 运行 node async_await/async-async_step.js
 import thenFs from 'then-fs'
 
 console.log('sync step A');

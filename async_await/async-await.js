@@ -1,3 +1,4 @@
+// 运行 node async_await/async-await.js
 const sleep = () => {
   return new Promise(resolve => {
     setTimeout(() => {

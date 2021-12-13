@@ -1,3 +1,4 @@
+// 运行 node promise/promise-then-getFile.js
 import { getFile } from './promise-getFile.js'
 
 getFile('./files/1.txt').then(

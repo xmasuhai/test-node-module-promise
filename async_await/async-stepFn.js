@@ -1,3 +1,4 @@
+// 运行 node async_await/async-async-stepFn.js
 export const takeLongTime = (n, name, ...args) => {
   return new Promise(resolve => {
     setTimeout(() => resolve(n + 200, name, ...args), n)

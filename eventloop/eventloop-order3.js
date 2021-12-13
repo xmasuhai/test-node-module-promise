@@ -1,3 +1,4 @@
+// 运行 node eventloop/eventloop-order3.js
 console.log('1')
 // setTimeout A
 setTimeout(function() {

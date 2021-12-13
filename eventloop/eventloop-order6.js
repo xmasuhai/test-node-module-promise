@@ -1,3 +1,4 @@
+// 运行 node eventloop/eventloop-order6.js
 const p1 = new Promise(function (resolve) {
   resolve('2') // 同步执行
 })

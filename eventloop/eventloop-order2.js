@@ -1,3 +1,4 @@
+// 运行 node eventloop/eventloop-order2.js
 // declaration
 async function async1() {
   console.log('async1 start')

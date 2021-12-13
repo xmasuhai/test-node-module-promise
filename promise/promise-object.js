@@ -1,3 +1,4 @@
+// 运行 node promise/promise-object.js
 // 1. 新建一个promise对象
 // 2. promise 接收一个回调函数 这个函数被称为执行器函数 里面执行异步任务
 // 3. 执行器函数接收两个参数 resolved rejected 两个参数都为函数类型

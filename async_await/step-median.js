@@ -1,5 +1,5 @@
 // 运行 node async_await/step-median.js
-import {step1, step2, step3} from './stepFn.js'
+import {step1, step2, step3} from './async-stepFn.js'
 
 // Promise
 const doItPromise = (name = 'doItPromise') => {

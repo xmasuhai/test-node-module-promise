@@ -1,3 +1,4 @@
+// 运行 node promise/mock-city-weather.js
 const {XMLHttpRequest} = require('xmlhttprequest')
 
 const getIp = () => {

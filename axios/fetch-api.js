@@ -1,4 +1,5 @@
-// pnpm add node-fetch // 在Node环境中使用 Fetch API 安装 pnpm add node-fetch
+// 在Node环境中使用 Fetch API 安装 pnpm add node-fetch
+// 运行 node axios/fetch-api.js
 import fetch, {Headers} from 'node-fetch'
 
 const myHeaders = new Headers()

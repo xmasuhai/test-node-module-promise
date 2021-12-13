@@ -1,3 +1,4 @@
+// 运行 node promise/promise-hell.js
 import thenFs from 'then-fs'
 
 // bad

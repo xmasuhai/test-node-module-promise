@@ -1,3 +1,4 @@
+// 运行 node promise/promise-lazy.js
 import fs from 'fs'
 
 // 当一个Promise被创建时，回调被立即执行

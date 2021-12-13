@@ -1,3 +1,4 @@
+// 运行 node promise/promise-then.js
 // Promise.resolve 返回一个带着给定值 解析过的 Promise 对象
 // 如果参数本身就是一个 Promise 对象，则直接返回这个 Promise 对象
 let p1 = Promise.resolve(100)

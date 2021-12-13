@@ -1,7 +1,8 @@
+// 运行 node eventloop/eventloop-order1.js
 import thenFs from 'then-fs'
 
 console.log('A')
-thenFs.readFile('./files/1.txt', 'utf8').then((dataStr) => {
+thenFs.readFile('./files/1.txt', 'utf8').then((/*dataStr*/) => {
   console.log('B')
 })
 setTimeout(() => {

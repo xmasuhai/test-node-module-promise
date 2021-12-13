@@ -1,3 +1,4 @@
+// 运行 node promise/promise-catch-then.js
 import thenFs from 'then-fs'
 
 thenFs.readFile('./files/11.txt', 'utf8') // 文件不存在导致读取失败

@@ -1,3 +1,4 @@
+// 运行 node node-server/server-weather.js
 // 加载 node 模块
 import http from 'http' // 创建服务器
 import fs from 'fs' // 文件读取模块

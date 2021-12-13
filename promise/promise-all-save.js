@@ -1,3 +1,4 @@
+// 运行 node promise/promise-all-save.js
 // Promise 是并发的，但如你一个一个地等待它们，会太费时间，Promise.all()可以节省很多时间
 import { promisify } from 'util';
 const sleep = promisify(setTimeout);

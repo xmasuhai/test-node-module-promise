@@ -1,3 +1,4 @@
+// 运行 node promise/callback-hell.js
 // 延时1秒后执行函数
 const delay = (time/* : number */, callback/* : Function */) => {
   setTimeout(() => {

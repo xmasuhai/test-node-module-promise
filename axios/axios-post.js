@@ -1,3 +1,4 @@
+// 运行 node axios/axios-post.js
 import axios from 'axios'
 // 直接发起
 axios.post('/api/addbook',
@@ -34,7 +35,7 @@ instance.post('/api/addbook',
   .then(
     (res) => {
       const {data, status} = res
-      console.log('// 先配置，后发起不带参请求')
+      console.log('先配置，后发起不带参请求')
       console.log('data', data)
       console.log('status', status)
       console.log('-----------------')

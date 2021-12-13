@@ -1,3 +1,4 @@
+// 运行 node axios/axios-axios.js
 import axios from 'axios'
 // 默认Get 读取全部数据
 axios('http://www.liulongbin.top:3006/api/getbooks')

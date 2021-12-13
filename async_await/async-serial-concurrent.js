@@ -1,4 +1,4 @@
-// 运行 node async_await/serialConcurrent.js
+// 运行 node async_await/async-serial-concurrent.js
 const delay = (ms) => {
   return new Promise(resolve => { return setTimeout(resolve, ms)})
 };

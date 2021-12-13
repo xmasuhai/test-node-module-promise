@@ -1,3 +1,4 @@
+// 运行 node promise/coinflip.js
 export const coinFlip = (betNum) => {
   return new Promise((resolve, reject) => {
     const hasWon = Math.random() > 0.5;

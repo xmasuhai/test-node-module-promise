@@ -1,3 +1,5 @@
+// 2018 一道烂大街的「今日头条」的面试题
+// 以浏览器的eventloop机制为准的，在node平台上运行会有差异
 // 运行 node eventloop/eventloop-order2.js
 // declaration
 async function async1() {
@@ -6,6 +8,7 @@ async function async1() {
   // microtask A
   console.log('async1 end')
 }
+
 async function async2() {
   console.log('async2')
 }
@@ -18,6 +21,11 @@ setTimeout(function () {
 }, 0)
 // sync A
 async1()
+/*
+.then(res => {
+  console.log('res1', res)
+})
+*/
 // sync B
 new Promise(function (resolve) {
   console.log('promise1')
@@ -27,8 +35,13 @@ new Promise(function (resolve) {
   .then(function () {
     console.log('promise2')
   })
+  /*
+  .then(function () { console.log('promise3') })
+  .then(function () { console.log('promise4') })
+  .then(function () { console.log('promise5') })
+  .then(function () { console.log('promise6') })
+  */
 console.log('script end')
-
 
 /*
 - 执行栈
@@ -47,5 +60,15 @@ console.log('script end')
 
 - 宏任务队列
   -[x] setTimeout A
+
+script start
+async1 start
+async2
+promise1
+script end
+async1 end
+promise2
+// undefined fn()
+setTimeout
 
 * */

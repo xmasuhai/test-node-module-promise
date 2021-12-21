@@ -3,6 +3,7 @@ dist/
 /dist
 dist-ssr
 .cache/
+.parcel-cache/
 .temp/
 .yarn/
 .sass-cache/

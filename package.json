@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "dependencies": {
     "axios": "^0.24.0",
     "node-dev": "^7.1.0",

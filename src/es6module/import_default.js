@@ -2,4 +2,5 @@
 import m1 from './export_default.js'
 const m2 = m1
 console.log('[ m1 ] >', m1)
+console.log('[ m2 ] >', m2)
 // 输出：{n1: 10, show: [Function: show]}

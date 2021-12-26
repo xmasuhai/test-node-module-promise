@@ -6,7 +6,7 @@ import * as path from 'path'
 
 const __dirname = path.resolve(path.dirname(''))
 
-const server = http.createServer((req /*请求对象*/, res /*响应对象*/) => {
+export const server = http.createServer((req /*请求对象*/, res /*响应对象*/) => {
   let urlObj = new URL(`${req.url}`, 'http://localhost:8080/')
 
   if (urlObj.pathname === '/getWeather') {

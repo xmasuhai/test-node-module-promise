@@ -43,7 +43,7 @@ const doItAsync = async (name = 'doItAsync') => {
 
 doItAsync();
 
-function doIt1() {
+export function doIt1() {
   console.time('doIt')
   const time1 = 300
   step1(time1)
@@ -52,7 +52,7 @@ function doIt1() {
     .then(result => { console.log(`result is ${result}`) })
 }
 
-function doIt2() {
+export function doIt2() {
   console.time('doIt')
   const time1 = 300
   step1(time1)

@@ -16,6 +16,8 @@
     "xmlhttprequest-ts": "^1.0.1"
   },
   "devDependencies": {
+    "form-data": "^4.0.0",
+    "formdata-node": "^4.3.1",
     "node-http-xhr": "^1.3.4",
     "parcel": "^2.0.1",
     "xhr2": "^0.2.1"

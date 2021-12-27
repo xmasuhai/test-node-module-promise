@@ -17,11 +17,12 @@
     'http://localhost:8080/getWeather?city=beijing',
     true
   )
-  xhr.onload = () => {
-    document.querySelector('span').innerText = JSON.parse(xhr.responseText).city + JSON.parse(xhr.responseText).weather
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === 4 && xhr.status === 200) document.querySelector('span').innerText = JSON.parse(xhr.responseText).city + JSON.parse(xhr.responseText).weather
   }
   xhr.send()
 </script>
 <script type="module" src="axios/testMyAjax.js"></script>
+<script type="module" src="xmlhttprequest-lv2/formdata.js"></script>
 </body>
 </html>

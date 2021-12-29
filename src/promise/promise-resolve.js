@@ -1,4 +1,4 @@
-// 运行 node promise/promise-resolve.js
+// 运行 node src/promise/promise-resolve.js
 let p2 = new Promise((resolve /*， reject*/) => {
   // resolve(200) // 同步调用
 

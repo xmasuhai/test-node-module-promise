@@ -1,4 +1,4 @@
-// 运行 node promise/promise-chain.js
+// 运行 node src/promise/promise-chain.js
 import thenFs from 'then-fs'
 
 thenFs.readFile('./files/1.txt', 'utf8') // 1. 返回值是 Promise 的实例对象

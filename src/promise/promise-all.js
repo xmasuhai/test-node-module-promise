@@ -1,4 +1,4 @@
-// 运行 node promise/promise-all.js
+// 运行 node src/promise/promise-all.js
 import { promiseArrOK, promiseArrOKReversal, promiseArrErr, promiseArrFail } from './promise-arr.js'
 
 // 以异步操作数组为参数

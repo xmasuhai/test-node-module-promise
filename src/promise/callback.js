@@ -1,4 +1,4 @@
-// 运行 node promise/callback.js
+// 运行 node src/promise/callback.js
 // 如果在`package.json`中设置了`"type": "module"`
 // 删除或改为`"type": "commonjs"` 解除以下注释
 // const fs = require('fs');

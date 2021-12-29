@@ -1,4 +1,4 @@
-// 运行 node promise/coinflip-then.js
+// 运行 node src/promise/coinflip-then.js
 export const coinFlip = (betNum) => {
   return new Promise((resolve, reject) => {
     const hasWon = Math.random() > 0.5

@@ -1,4 +1,4 @@
-// 运行 node promise/then-fs.js
+// 运行 node src/promise/then-fs.js
 import thenFs from 'then-fs'
 
 thenFs.readFile('./files/1.txt', 'utf8')

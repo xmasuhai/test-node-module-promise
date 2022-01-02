@@ -1,7 +1,7 @@
-// 运行 node axios/axios-get.js
+// 运行 node src/axios/axios-get.js
 import axios from 'axios'
 
-// 直接发起不带参数的请求
+// 发起不带参数的请求
 axios.get('/api/getbooks',
   {
     baseURL: 'http://www.liulongbin.top:3006/',
@@ -10,7 +10,24 @@ axios.get('/api/getbooks',
   .then(
     (res) => {
       const {data, status} = res
-      console.log('直接发起不带参数的请求')
+      console.log('发起不带参数的请求')
+      console.log('data', data)
+      console.log('status', status)
+      console.log('-----------------')
+    }
+  )
+
+// 发起带参数的请求
+axios.get('/api/getbooks',
+  {
+    params: {id: 1},
+    baseURL: 'http://www.liulongbin.top:3006/',
+    timeout: 1000
+  })
+  .then(
+    (res) => {
+      const {data, status} = res
+      console.log('发起带参数{id: 1}的请求')
       console.log('data', data)
       console.log('status', status)
       console.log('-----------------')

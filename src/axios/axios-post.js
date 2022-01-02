@@ -1,4 +1,4 @@
-// 运行 node axios/axios-post.js
+// 运行 node src/axios/axios-post.js
 import axios from 'axios'
 // 直接发起
 axios.post('/api/addbook',

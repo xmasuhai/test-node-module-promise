@@ -1,3 +1,4 @@
+// 运行 node src/axios/testMyAjax.js
 import {myAjax} from './myAjax.js'
 
 myAjax({

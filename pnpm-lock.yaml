@@ -2,6 +2,8 @@ lockfileVersion: 5.3
 
 specifiers:
   axios: ^0.24.0
+  form-data: ^4.0.0
+  formdata-node: ^4.3.1
   node-dev: ^7.1.0
   node-fetch: ^3.1.0
   node-http-xhr: ^1.3.4
@@ -24,6 +26,8 @@ dependencies:
   xmlhttprequest-ts: 1.0.1
 
 devDependencies:
+  form-data: registry.nlark.com/form-data/4.0.0
+  formdata-node: registry.npmmirror.com/formdata-node/4.3.2
   node-http-xhr: registry.npmmirror.com/node-http-xhr/1.3.4
   parcel: registry.npmmirror.com/parcel/2.0.1
   xhr2: registry.npmmirror.com/xhr2/0.2.1
@@ -65,7 +69,7 @@ packages:
     resolution: {integrity: sha512-ax1Y5I9w+9+JiM+wdHkhBoxew+zG4AJ2SvAD1v1szpddUIiPERVGBxrMcB2ZqW0Y3PP8bOWYv2zqQq1Jp2kqUQ==}
     engines: {node: ^12.20 || >= 14.13}
     dependencies:
-      web-streams-polyfill: 3.2.0
+      web-streams-polyfill: registry.npmmirror.com/web-streams-polyfill/3.2.0
     dev: false
 
   /filewatcher/3.0.1:
@@ -216,11 +220,6 @@ packages:
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
-    dev: false
-
-  /web-streams-polyfill/3.2.0:
-    resolution: {integrity: sha512-EqPmREeOzttaLRm5HS7io98goBgZ7IVz79aDvqjD0kYXLtFZTc0T/U6wHTPKyIjb+MdN7DFIIX6hgdBEpWmfPA==}
-    engines: {node: '>= 8'}
     dev: false
 
   /which/2.0.2:
@@ -1261,6 +1260,17 @@ packages:
     name: form-data
     version: 2.3.3
     engines: {node: '>= 0.12'}
+    dependencies:
+      asynckit: registry.nlark.com/asynckit/0.4.0
+      combined-stream: registry.nlark.com/combined-stream/1.0.8
+      mime-types: registry.npmmirror.com/mime-types/2.1.34
+    dev: true
+
+  registry.nlark.com/form-data/4.0.0:
+    resolution: {integrity: sha1-k5Gdrq82HuUpWEubMWZNwSyfpFI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/form-data/download/form-data-4.0.0.tgz?cache=0&sync_timestamp=1631521637683&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fform-data%2Fdownload%2Fform-data-4.0.0.tgz}
+    name: form-data
+    version: 4.0.0
+    engines: {node: '>= 6'}
     dependencies:
       asynckit: registry.nlark.com/asynckit/0.4.0
       combined-stream: registry.nlark.com/combined-stream/1.0.8
@@ -4893,6 +4903,16 @@ packages:
         optional: true
     dev: true
 
+  registry.npmmirror.com/formdata-node/4.3.2:
+    resolution: {integrity: sha512-k7lYJyzDOSL6h917favP8j1L0/wNyylzU+x+1w4p5haGVHNlP58dbpdJhiCUsDbWsa9HwEtLp89obQgXl2e0qg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/formdata-node/download/formdata-node-4.3.2.tgz}
+    name: formdata-node
+    version: 4.3.2
+    engines: {node: '>= 12.20'}
+    dependencies:
+      node-domexception: registry.npmmirror.com/node-domexception/1.0.0
+      web-streams-polyfill: registry.npmmirror.com/web-streams-polyfill/4.0.0-beta.1
+    dev: true
+
   registry.npmmirror.com/generic-names/2.0.1:
     resolution: {integrity: sha1-+KN46tLMqno08DF7BVVIMq5BuHI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/generic-names/download/generic-names-2.0.1.tgz}
     name: generic-names
@@ -5208,7 +5228,7 @@ packages:
     dev: true
 
   registry.npmmirror.com/mime-db/1.33.0:
-    resolution: {integrity: sha1-o0kgUKXLm2NFBUHjnZeI0icng9s=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mime-db/download/mime-db-1.33.0.tgz?cache=0&sync_timestamp=1636426398016&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmime-db%2Fdownload%2Fmime-db-1.33.0.tgz}
+    resolution: {integrity: sha1-o0kgUKXLm2NFBUHjnZeI0icng9s=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mime-db/download/mime-db-1.33.0.tgz}
     name: mime-db
     version: 1.33.0
     engines: {node: '>= 0.6'}
@@ -5292,6 +5312,13 @@ packages:
     name: ncp
     version: 2.0.0
     hasBin: true
+    dev: true
+
+  registry.npmmirror.com/node-domexception/1.0.0:
+    resolution: {integrity: sha1-aIjbRqH3HAt2s/dVUBa2P+ZHZuU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/node-domexception/download/node-domexception-1.0.0.tgz}
+    name: node-domexception
+    version: 1.0.0
+    engines: {node: '>=10.5.0'}
     dev: true
 
   registry.npmmirror.com/node-http-xhr/1.3.4:
@@ -5983,6 +6010,20 @@ packages:
     resolution: {integrity: sha512-O5ag1F0Xk6ui+Fg5LlosTcVAyHs6DeyiDDbOapNtFCx/KjZ82B3U9stM9hvzbVclKWn9ABPjaINX/nQkGkJkKg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/weak-lru-cache/download/weak-lru-cache-1.2.1.tgz}
     name: weak-lru-cache
     version: 1.2.1
+    dev: true
+
+  registry.npmmirror.com/web-streams-polyfill/3.2.0:
+    resolution: {integrity: sha1-prdAJrOOSIWGn7XFiekLlcz8eWU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/web-streams-polyfill/download/web-streams-polyfill-3.2.0.tgz}
+    name: web-streams-polyfill
+    version: 3.2.0
+    engines: {node: '>= 8'}
+    dev: false
+
+  registry.npmmirror.com/web-streams-polyfill/4.0.0-beta.1:
+    resolution: {integrity: sha1-Oxm5gXN0t87gbTdLp+6zrrgOjJU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/web-streams-polyfill/download/web-streams-polyfill-4.0.0-beta.1.tgz}
+    name: web-streams-polyfill
+    version: 4.0.0-beta.1
+    engines: {node: '>= 12'}
     dev: true
 
   registry.npmmirror.com/whatwg-url/7.1.0:
